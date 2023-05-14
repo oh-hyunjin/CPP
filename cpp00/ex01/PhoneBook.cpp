@@ -6,7 +6,7 @@
 /*   By: hyoh <hyoh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 12:20:25 by hyoh              #+#    #+#             */
-/*   Updated: 2023/05/08 15:48:16 by hyoh             ###   ########.fr       */
+/*   Updated: 2023/05/14 16:18:15 by hyoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int get_str(std::string text, std::string *dest){
 	//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // 버퍼 비움
 
 	if (*dest == "\0"){
-		std::cout << "error" << std::endl;
+		std::cout << "!! error !!" << std::endl;
 		return (-1);
 	}
 	return (1);
@@ -87,7 +87,19 @@ std::string cut_ten(std::string str) {
 }
 
 void PhoneBook::display_all(){
+	std::cout << std::setw(10) << "index  " << "|";
+	std::cout << std::setw(10) << "first name" << "|";
+	std::cout << std::setw(10) << "last name" << "|";
+	std::cout << std::setw(10) << "nickname " << "|";
+	std::cout << std::endl;
+	std::cout << "- - - - - - - - - - - - - - - - - - - - - - -" << std::endl;
+	if (cur == 0) {
+		std::cout << "          the phonebook is empty" << std::endl; // 맞나 ㅋㅋ
+		return ;
+	}
 	for (int i = 0; i < 8; i++) {
+		if (i >= cur)
+			break;
 		std::cout << std::setw(10) << i << "|";
 		std::cout << std::setw(10) << cut_ten(array[i].FirstName) << "|";
 		std::cout << std::setw(10) << cut_ten(array[i].LastName) << "|";
@@ -98,13 +110,16 @@ void PhoneBook::display_all(){
 
 void PhoneBook::search(){
 	display_all();
+	if (cur == 0)
+		return ;
 	int idx;
-	std::cout << "index(0~7) >> ";
+	std::cout << "index(0~7) >> "; //eof면..?
 	std::cin >> idx;
-	if (0 <= idx && idx < 8)
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // 버퍼 비움
+	if (0 <= idx && idx < 8 && idx < cur)
 		display_one(idx);
 	else
-		std::cout << "error" << std::endl;
+		std::cout << "!! wrong index !!" << std::endl;
 }
 
 int main()
@@ -112,9 +127,9 @@ int main()
 	PhoneBook pb;
 	std::string input;
 
-	while(1)
+	while(!std::cin.eof())
 	{
-		std::cout << "------------------------------------------" << std::endl;
+		std::cout << "\n\n***********************************************" << std::endl;
 		if (get_str("command(ADD/SEARCH/EXIT) >> ", &input) == -1)
 			continue ;
 		if (input == "ADD")
@@ -124,6 +139,6 @@ int main()
 		else if (input == "EXIT")
 			break ;
 		else
-			std::cout << "error" << std::endl;
+			std::cout << "!! wrong command !!" << std::endl;
 	}
 }
