@@ -7,7 +7,7 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-int Account::getNbAccounts() { // Q. 여기에는 static 안 쓰나?
+int Account::getNbAccounts() {
 	return _nbAccounts;
 }
 
@@ -16,11 +16,11 @@ int Account::getTotalAmount() {
 }
 
 int Account::getNbDeposits() {
-	return _totalNbDeposits; // 맞나
+	return _totalNbDeposits;
 }
 
 int Account::getNbWithdrawals() {
-	return _totalNbWithdrawals; // 맞나
+	return _totalNbWithdrawals;
 }
 
 void Account::displayAccountsInfos() {

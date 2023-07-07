@@ -10,13 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	megaphone
+NAME		=	account
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM			=	rm -f
 
-SOURCE		=	megaphone.cpp
+SOURCE		=	Account.cpp tests.cpp
 
 OBJECT		=	$(SOURCE:.cpp=.o)
 

@@ -10,13 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	megaphone
+NAME		=	phonebook
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM			=	rm -f
 
-SOURCE		=	megaphone.cpp
+SOURCE		=	PhoneBook.cpp main.cpp
 
 OBJECT		=	$(SOURCE:.cpp=.o)
 
