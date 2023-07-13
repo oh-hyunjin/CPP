@@ -8,9 +8,9 @@ private:
 	std::string	name;
 	int			idx;
 public:
+	Zombie();
 	~Zombie();
-	void	set_name(std::string name);
-	void	set_idx(int idx);
+	void	set_name_idx(std::string name, int idx);
 	void	announce();
 };
 

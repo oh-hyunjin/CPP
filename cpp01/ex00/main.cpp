@@ -2,14 +2,12 @@
 
 int main()
 {
-	Zombie *a = newZombie("AAA");
-	a->annonce();
-
-	randomChump("???");
-
+	Zombie a("AAA");
 	Zombie *b = newZombie("BBB");
+	
+	a.annonce();
 	b->annonce();
+	randomChump("CCC");
 
-	delete a;
 	delete b;
 }

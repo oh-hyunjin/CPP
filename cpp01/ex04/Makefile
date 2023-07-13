@@ -1,13 +1,10 @@
-NAME		=	Braiinnzz
+NAME		=	replace
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM			=	rm -f
 
-SOURCE		=	main.cpp\
-				Zombie.cpp\
-				newZombie.cpp\
-				randomChump.cpp
+SOURCE		=	main.cpp
 
 OBJECT		=	$(SOURCE:.cpp=.o)
 

@@ -1,14 +1,15 @@
 #include "Zombie.hpp"
 
+Zombie::Zombie() {
+	std::cout << "(" << name << "[" << idx << "] constructor)" << std::endl;
+}
+
 Zombie::~Zombie() {
-	std::cout << "destroyed " << name << "[" << this->idx << "]" << std::endl;
+	std::cout << "(" << name << "[" << idx << "] destructor)" << std::endl;
 }
 
-void Zombie::set_name(std::string name) {
+void Zombie::set_name_idx(std::string name, int idx) {
 	this->name = name;
-}
-
-void Zombie::set_idx(int idx) {
 	this->idx = idx;
 }
 
