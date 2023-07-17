@@ -1,5 +1,3 @@
-#include <iostream>
-#include <cmath>
 #include "Fixed.hpp"
 
 int main( void ) {

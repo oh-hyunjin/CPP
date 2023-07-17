@@ -1,6 +1,9 @@
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
+#include <iostream>
+#include <cmath>
+
 class Fixed {
 	int fixed;
 	static const int fractionalBits;
@@ -20,5 +23,6 @@ public:
 };
 
 // inserts floating-point representation of the fixed-point num into the output stream object passed as param
+std::ostream& operator<<(std::ostream& out, const Fixed& a);
 
 #endif

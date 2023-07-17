@@ -1,7 +1,6 @@
 #include "Fixed.hpp"
-#include <iostream>
 
-Fixed::Fixed() : fixed(0) {
+Fixed::Fixed() {
 	std::cout << "Default constructor called" << std::endl;
 }
 
@@ -31,24 +30,23 @@ void Fixed::setRawBits(int const raw) {
 }
 
 // ex01
-Fixed::Fixed(const int) : fixed(0) {
-	//converts param -> fixed-point value, init fractional bits 8
+Fixed::Fixed(const int input) {
+	fixed = input << 8;
 }
 
-Fixed::Fixed(const float) : fixed(0) {
-	//converts param -> fixed-point value, init fractional bits 8
+Fixed::Fixed(const float input) {
+	fixed = roundf(input * (1 << 8));
 }
 
 float Fixed::toFloat(void) const {
-	//converts fixed-point value -> floating-point value
+	return ((float)fixed / (1 << 8));
 }
 
 int Fixed::toInt(void) const {
-	//converts fixed-point value -> int value
+	return (fixed / (1 << 8));
 }
 
-std::ostream& operator << (std::ostream& out, const Fixed& a) {
-	//inserts floating-point representation of the fixed-point num into the output stream object passed as param
+std::ostream& operator<<(std::ostream& out, const Fixed& a) {
 	out << a.toFloat();
 	return out;
 }
