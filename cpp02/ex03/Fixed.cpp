@@ -1,43 +1,43 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed() : fixed(0) {
-	std::cout << "Default constructor called : " << fixed  << std::endl;
+	// std::cout << "Default constructor called : " << fixed  << std::endl;
 }
 
 Fixed::Fixed(const Fixed& a) {
 	this->fixed = a.fixed;
-	std::cout << "Copy constructor called : " << fixed << std::endl;
+	// std::cout << "Copy constructor called : " << fixed << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed& a) {
 	this->fixed = a.fixed;
-	std::cout << "Copy assignment operator called : " << fixed << std::endl;
+	// std::cout << "Copy assignment operator called : " << fixed << std::endl;
 	return *this;
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called : " << fixed << std::endl;
+	// std::cout << "Destructor called : " << fixed << std::endl;
 }
 
 int Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return fixed;
 }
 
 void Fixed::setRawBits(int const raw) {
-	std::cout << "setRawBits member function called" << std::endl;
+	// std::cout << "setRawBits member function called" << std::endl;
 	fixed = raw;
 }
 
 
 // ex01
 Fixed::Fixed(const int input) {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	fixed = input << 8;
 }
 
 Fixed::Fixed(const float input) {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	fixed = roundf(input * (1 << 8));
 }
 
@@ -96,7 +96,7 @@ Fixed Fixed::operator/(const Fixed& a) const {
 
 Fixed& Fixed::operator++() {
 	this->fixed++;
-	return *this; //왜 *??
+	return *this;
 }
 const Fixed Fixed::operator++(int) {
 	Fixed temp(*this);

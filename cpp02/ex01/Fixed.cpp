@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed() {
+Fixed::Fixed() : fixed(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
@@ -31,10 +31,12 @@ void Fixed::setRawBits(int const raw) {
 
 // ex01
 Fixed::Fixed(const int input) {
+	std::cout << "Int constructor called" << std::endl;
 	fixed = input << 8;
 }
 
 Fixed::Fixed(const float input) {
+	std::cout << "Float constructor called" << std::endl;
 	fixed = roundf(input * (1 << 8));
 }
 

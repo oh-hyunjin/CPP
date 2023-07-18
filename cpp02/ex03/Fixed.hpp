@@ -35,9 +35,8 @@ public:
 	Fixed operator*(const Fixed&) const;
 	Fixed operator/(const Fixed&) const;
 
-	//  that will increase or decrease the fixed-point value from the smallest representable ϵ such as 1 + ϵ > 1.?????????????????????????
-	Fixed& operator++(); //전위
-	const Fixed operator++(int); //후위
+	Fixed& operator++();
+	const Fixed operator++(int);
 	Fixed& operator--();
 	const Fixed operator--(int);
 
