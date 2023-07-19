@@ -2,9 +2,8 @@
 #include "Point.hpp"
 
 int main() {
-	// if (bsp(Point(0, 0), Point(10, 0), Point(0, 10), Point(1,1)) == true)
-	// 	std::cout <<"True\n";
-	// else
-	// 	std::cout <<"False\n";
-	std::cout << Fixed(Fixed(0.0f) * Fixed(10.0f)) - (Fixed(10.0f) * Fixed(10.0f)) << std::endl;
+	if (bsp(Point(0,0), Point(4,0), Point(0,3), Point(1.55f,1.52f)) == true)
+		std::cout <<"\n\nTrue\n";
+	else
+		std::cout <<"\n\nFalse\n";
 }

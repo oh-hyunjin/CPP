@@ -12,16 +12,16 @@ private:
 
 public:
 	Point();
-	Point(const Fixed a, const Fixed b);
+	Point(const float x, const float y);
 	Point(const Point& a);
 	Point& operator=(const Point& a);
 	~Point();
 
-	const Fixed getX() const;
-	const Fixed getY() const;
+	float getX() const;
+	float getY() const;
 };
 
-Fixed getArea(const Point a, const Point b, const Point c);
+float getArea(const Point a, const Point b, const Point c);
 bool bsp(const Point a, const Point b, const Point c, const Point point);
 
 #endif

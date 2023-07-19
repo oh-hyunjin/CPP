@@ -1,43 +1,34 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed() : fixed(0) {
-	// std::cout << "Default constructor called : " << fixed  << std::endl;
 }
 
-Fixed::Fixed(const Fixed& a) {
-	this->fixed = a.fixed;
-	// std::cout << "Copy constructor called : " << fixed << std::endl;
+Fixed::Fixed(const Fixed& a) : fixed(a.fixed) {
 }
 
 Fixed& Fixed::operator=(const Fixed& a) {
 	this->fixed = a.fixed;
-	// std::cout << "Copy assignment operator called : " << fixed << std::endl;
 	return *this;
 }
 
 Fixed::~Fixed() {
-	// std::cout << "Destructor called : " << fixed << std::endl;
 }
 
 int Fixed::getRawBits(void) const {
-	// std::cout << "getRawBits member function called" << std::endl;
 	return fixed;
 }
 
 void Fixed::setRawBits(int const raw) {
-	// std::cout << "setRawBits member function called" << std::endl;
 	fixed = raw;
 }
 
 
 // ex01
 Fixed::Fixed(const int input) {
-	// std::cout << "Int constructor called" << std::endl;
 	fixed = input << 8;
 }
 
 Fixed::Fixed(const float input) {
-	// std::cout << "Float constructor called" << std::endl;
 	fixed = roundf(input * (1 << 8));
 }
 
@@ -76,8 +67,7 @@ bool Fixed::operator!=(const Fixed& a) const {
 }
 
 Fixed Fixed::operator+(const Fixed& a) const {
-	Fixed result;
-	result.fixed = ( toFloat() + a.toFloat() );
+	Fixed result( toFloat() + a.toFloat() );
 	return result;
 }
 Fixed Fixed::operator-(const Fixed& a) const {
@@ -86,7 +76,6 @@ Fixed Fixed::operator-(const Fixed& a) const {
 }
 Fixed Fixed::operator*(const Fixed& a) const {
 	Fixed result ( toFloat() * a.toFloat() );
-	// const 함수인데 어떻게 고치지
 	return result;
 }
 Fixed Fixed::operator/(const Fixed& a) const {
@@ -114,22 +103,14 @@ const Fixed Fixed::operator--(int) {
 }
 
 Fixed& Fixed::min(Fixed& a, Fixed& b) {
-	if (a.fixed < b.fixed)
-		return a;
-	return b;
+	return (a < b ? a : b);
 }
 const Fixed& Fixed::min(const Fixed& a, const Fixed& b) {
-	if (a.fixed < b.fixed)
-		return a;
-	return b;
+	return (a < b ? a : b);
 }
 Fixed& Fixed::max(Fixed& a, Fixed& b) {
-	if (a.fixed < b.fixed)
-		return b;
-	return a;
+	return (a < b ? b : a);
 }
 const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
-	if (a.fixed < b.fixed)
-		return b;
-	return a;
+	return (a < b ? b : a);
 }
