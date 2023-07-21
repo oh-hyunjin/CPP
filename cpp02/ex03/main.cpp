@@ -3,7 +3,7 @@
 
 int main() {
 	if (bsp(Point(0,0), Point(4,0), Point(0,3), Point(1.55f,1.52f)) == true)
-		std::cout <<"\n\nTrue\n";
+		std::cout <<"True\n";
 	else
-		std::cout <<"\n\nFalse\n";
+		std::cout <<"False\n";
 }
