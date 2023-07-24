@@ -1,57 +1,55 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap() {
-	std::cout << "ScavTrap [" << get_name() << "] is constructed" << std::endl;
-	set_HitPoints(100);
-	set_EnergyPoints(50);
-	set_AttackDamage(20);
+ScavTrap::ScavTrap() {
+	this->_HitPoints = 100;
+	this->_EnergyPoints = 50;
+	this->_AttackDamage = 20;
+	std::cout << "ScavTrap Default constrctor called" << std::endl;
+}
+
+ScavTrap::ScavTrap(std::string name) {
+	this->_name = name;
+	this->_HitPoints = 100;
+	this->_EnergyPoints = 50;
+	this->_AttackDamage = 20;
+	std::cout << "ScavTrap Constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& src) {
+	this->_name = src._name;
+	this->_HitPoints = src._HitPoints;
+	this->_EnergyPoints = src._EnergyPoints;
+	this->_AttackDamage = src._AttackDamage;
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
-	this->set_name(src.get_name());
-	this->set_HitPoints(src.get_HitPoints());
-	this->set_EnergyPoints(src.get_EnergyPoints());
-	this->set_AttackDamage(src.get_AttackDamage());
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& src) {
-	std:: cout << "ScavTrap Copy assignment operator called" << std::endl;
 	if (this != &src) {
-		this->set_name(src.get_name());
-		this->set_HitPoints(src.get_HitPoints());
-		this->set_EnergyPoints(src.get_EnergyPoints());
-		this->set_AttackDamage(src.get_AttackDamage());
+		this->_name = src._name;
+		this->_HitPoints = src._HitPoints;
+		this->_EnergyPoints = src._EnergyPoints;
+		this->_AttackDamage = src._AttackDamage;
 	}
+	std:: cout << "ScavTrap Copy assignment operator called" << std::endl;
 	return *this;
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "ScavTrap [" << get_name() << "] is destructed" << std::endl;
-}
-
-
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-	std::cout << "ScavTrap [" << get_name() << "] is constructed" << std::endl;
-	set_HitPoints(100);
-	set_EnergyPoints(50);
-	set_AttackDamage(20);
+	std::cout << "ScavTrap Destructor called" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target) {
-	if (get_HitPoints() <= 0) {
-		std::cout << "ScavTrap Attack fail :: [" << get_name() << "] has no HitPoints" << std::endl;
-		return;
+	if (_HitPoints <= 0 || _EnergyPoints <= 0)
+		std::cout << "ScavTrap [" << _name << "] can\'t attack" << std::endl;
+	else {
+		std::cout << "ScavTrap [" << _name << "] attacks [" << target << "], causing <" <<_AttackDamage << "> points of damage!" << std::endl;
+		_EnergyPoints--;
 	}
-	if (get_EnergyPoints() <= 0) {
-		std::cout << "ScavTrap Attack fail :: [" << get_name() << "] has no EnergyPoints" << std::endl;
-		return;
-	}
-
-	std::cout << "ScavTrap [" << get_name() << "] attacks [" << target << "], causing <" <<get_AttackDamage() << "> points of damage!" << std::endl;
-	set_EnergyPoints(get_EnergyPoints() - 1);
 }
 
 void ScavTrap::guardGate() {
-	std::cout << "ScavTrap is now in gate kepper mode" << std::endl;
+	if (_HitPoints <= 0 || _EnergyPoints <= 0)
+		std::cout << "ScavTrap [" << _name << "] can\'t be in gate keeper mode" << std::endl;
+	else
+		std::cout << "ScavTrap [" << _name << "] is now in gate kepper mode" << std::endl;
 }

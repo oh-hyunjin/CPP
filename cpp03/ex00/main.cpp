@@ -3,10 +3,15 @@
 int main()
 {
 	ClapTrap A("A");
+	ClapTrap B("B");
 
-	for (int i = 0; i < 9; i++)
-        A.attack("B");
-
-    A.beRepaired(3);
+	std::cout << std::endl;
 	A.attack("B");
+	B.takeDamage(9);
+	B.beRepaired(10);
+
+	B.attack("A");
+	A.takeDamage(10);
+	A.beRepaired(10);
+	std::cout << std::endl;
 }

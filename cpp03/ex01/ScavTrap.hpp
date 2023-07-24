@@ -5,8 +5,6 @@
 #include <iostream>
 
 class ScavTrap : public ClapTrap {
-private:
-
 public:
 	ScavTrap();
 	ScavTrap(const ScavTrap& src);

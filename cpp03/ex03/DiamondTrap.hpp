@@ -4,17 +4,21 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap {
-private:
-	std::string _name; // ClapTrap 부모클래스의 이름과 동일하게?
-	std::string ClapTrap::_name;
-	int FragTrap::_HitPoints;
-	int ScavTrap::_EnergyPoints;
-	int FragTrap::_AttackDamage;
+class DiamondTrap : public FragTrap, public ScavTrap
+{
+	private:
+		std::string _name;
 
-public:
-	void ScavTrap::attack(const std::string& target);
-	void WhoAmI(); // display both its name and its ClapTrap name
+	public:
+		DiamondTrap(void);
+		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap& src);
+		~DiamondTrap(void);
+		DiamondTrap& operator=(DiamondTrap const& src);
+
+		void print_info();
+		void attack(const std::string& target);
+		void WhoAmI(); // display both its name and its ClapTrap name
 };
 
 #endif
