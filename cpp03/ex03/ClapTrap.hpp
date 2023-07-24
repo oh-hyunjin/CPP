@@ -26,7 +26,7 @@ class ClapTrap
 		void set_HitPoints(int);
 		void set_EnergyPoints(int);
 		void set_AttackDamage(int);
-		const std::string get_name() const; // 왜 const int는 안되고 const string은 되는지..
+		const std::string get_name() const;
 		int  get_HitPoints() const;
 		int  get_EnergyPoints() const;
 		int  get_AttackDamage() const;

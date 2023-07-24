@@ -2,18 +2,11 @@
 
 int main()
 {
-	ClapTrap A;
+	ClapTrap A("A");
 
-	A.attack("B");
-	A.attack("B");
-	A.attack("B");
-	A.attack("B");
-	A.attack("B");
-	A.attack("B");
-	A.attack("B");
-	A.attack("B");
-	A.attack("B");
-	A.attack("B");
+	for (int i = 0; i < 9; i++)
+        A.attack("B");
 
+    A.beRepaired(3);
 	A.attack("B");
 }

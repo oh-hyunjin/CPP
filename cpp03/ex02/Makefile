@@ -1,11 +1,13 @@
-NAME		=	ClapTrap
+NAME		=	FragTrap
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM			=	rm -f
 
 SOURCE		=	main.cpp\
-				ClapTrap.cpp
+				ClapTrap.cpp\
+				ScavTrap.cpp\
+				FragTrap.cpp
 
 OBJECT		=	$(SOURCE:.cpp=.o)
 
