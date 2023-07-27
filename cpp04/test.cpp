@@ -1,26 +1,44 @@
 #include <iostream>
 using namespace std;
 
-class First {
+class Parent {
 public:
-	First() {cout << "First()\n";}
-	~First() {cout << "~First()\n";}
+	Parent() {cout << "Parent()\n";}
+	virtual ~Parent() {cout << "~Parent()\n";}
+	void func()          { cout << "Parent\n"; }
+	virtual void Vfunc() { cout << "virtual Parent\n"; }
 };
 
-class Second : public First {
+class Child : public Parent {
 public:
-	Second() {cout << "Second()\n";}
-	~Second() {cout << "~Second()\n";}
-};
-
-class Third : public Second {
-public:
-	Third() {cout << "Third()\n";}
-	~Third() {cout << "~Third()\n";}
+	Child() {cout << "Child()\n";}
+	~Child() {cout << "~Child()\n";}
+	void func() { cout << "Child\n"; }
+	void Vfunc() { cout << "virtual Child\n"; }
 };
 
 int main() {
-	// Third *a = new Third();
-	First *a = new Third();
-	delete a;
+	Parent* p = new Parent;
+	cout << endl;
+	Child* c = new Child;
+	cout << endl;
+	Parent* u = new Child;
+	cout << "--------------" << endl;
+
+	p->func(); // Parent
+	c->func(); // Child
+	u->func(); // Parent
+
+	cout << endl;
+
+	p->Vfunc(); // virtual Parent
+	c->Vfunc(); // virtual Child
+	u->Vfunc(); // virtual Child
+
+	cout << "--------------" << endl;
+	delete p;
+	cout << endl;
+	delete c;
+	cout << endl;
+	delete u;
 }
