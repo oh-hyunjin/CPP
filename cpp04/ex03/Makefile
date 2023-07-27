@@ -1,13 +1,10 @@
-NAME		=	ScavTrap
+NAME		=	Exercise03
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM			=	rm -f
 
-SOURCE		=	main.cpp\
-				ClapTrap.cpp\
-				ScavTrap.cpp
-
+SOURCE		=	main.cpp
 OBJECT		=	$(SOURCE:.cpp=.o)
 
 all	: $(NAME)

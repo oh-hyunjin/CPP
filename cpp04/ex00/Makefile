@@ -1,4 +1,4 @@
-NAME		=	Polymorphism
+NAME		=	Exercise00
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
@@ -7,7 +7,9 @@ RM			=	rm -f
 SOURCE		=	main.cpp\
 				Animal.cpp\
 				Dog.cpp\
-				Cat.cpp
+				Cat.cpp\
+				WrongAnimal.cpp\
+				WrongCat.cpp
 
 OBJECT		=	$(SOURCE:.cpp=.o)
 

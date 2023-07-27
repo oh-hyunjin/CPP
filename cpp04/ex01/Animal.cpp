@@ -1,18 +1,18 @@
 #include "Animal.hpp"
 
-Animal::Animal() {
+Animal::Animal() { // : type(NULL) 안해도 되나? 하면 세그폴트..
+	type = "ANIMAL";
 	std::cout << "Animal Default constructor called" << std::endl;
-	type = "ANIMAl";
 }
 Animal::Animal(const Animal& src) {
+	this->type = src.type;
 	std::cout << "Animal Copy constructor called" << std::endl;
-	*this = src;
 }
 Animal& Animal::operator=(const Animal& src) {
-	std:: cout << "Animal Copy assignment operator called" << std::endl;
 	if (this != &src) {
 		this->type = src.type;
 	}
+	std:: cout << "Animal Copy assignment operator called" << std::endl;
 	return *this;
 }
 Animal::~Animal() {
