@@ -1,10 +1,16 @@
 NAME		=	Exercise03
 
 CXX			=	c++
-CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g3
 RM			=	rm -f
 
-SOURCE		=	main.cpp
+SOURCE		=	main.cpp\
+				AMateria.cpp\
+				Cure.cpp\
+				Ice.cpp\
+				Character.cpp\
+				MateriaSource.cpp
+
 OBJECT		=	$(SOURCE:.cpp=.o)
 
 all	: $(NAME)
