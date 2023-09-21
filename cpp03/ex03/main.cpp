@@ -4,8 +4,8 @@ int main() {
 	DiamondTrap A("A");
 
 	std::cout << std::endl;
-	A.print_info();
 	A.highFivesGuys();
+	A.guardGate();
 	A.WhoAmI();
 	for (int i = 0; i < 10; i++)
 		A.attack("B");

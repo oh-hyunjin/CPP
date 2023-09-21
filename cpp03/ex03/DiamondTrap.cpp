@@ -41,13 +41,9 @@ DiamondTrap::~DiamondTrap() {
 }
 
 void DiamondTrap::attack(const std::string& target) {
-    ScavTrap::attack(target);
+	ScavTrap::attack(target);
 }
 
 void DiamondTrap::WhoAmI() {
-    std::cout << "DiamondTrap name: " << _name << " , ClapTrap name: " << ClapTrap::_name << std::endl;
-}
-
-void DiamondTrap::print_info() {
-	std::cout << _name << ", " << _HitPoints << ", " << _EnergyPoints << ", " << _AttackDamage << std::endl;
+	std::cout << "DiamondTrap name: " << _name << " , ClapTrap name: " << ClapTrap::_name << std::endl;
 }
